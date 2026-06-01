@@ -115,7 +115,7 @@ const fallbackProjects = [
 
 const experiences = [
   {
-    title: 'Developer',
+    title: 'Project manager',
     company: '4champz Innovative Pvt Ltd',
     location: 'Kerala, India',
     duration: '2023 – Present',
@@ -205,11 +205,11 @@ const Portfolio = () => {
   const [projectsList, setProjectsList] = useState(fallbackProjects);
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
-  
+
   // Contact Form States
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [formStatus, setFormStatus] = useState({ type: '', text: '' }); // 'success', 'error', 'loading'
-  
+
   // Fetch Projects and Skills from database on startup
   useEffect(() => {
     const fetchData = async () => {
@@ -245,7 +245,7 @@ const Portfolio = () => {
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     setFormStatus({ type: 'loading', text: 'Transmitting message securely...' });
-    
+
     try {
       const res = await api.post('/contact', formData);
       if (res.data.success) {
@@ -260,7 +260,7 @@ const Portfolio = () => {
     } catch (err) {
       const errors = err.response?.data?.errors;
       const errorMsg = errors ? errors.map(e => e.message).join(', ') : (err.response?.data?.message || err.message || 'Error occurred');
-      
+
       setFormStatus({
         type: 'error',
         text: `Unable to send: ${errorMsg}. Please email directly.`
@@ -279,11 +279,11 @@ const Portfolio = () => {
 
   return (
     <div className="section-bg-gradient min-h-screen text-slate-800 dark:text-slate-100 overflow-x-hidden pt-16">
-      
+
       {/* ----------------- SECTION 0: HERO (Animated Introduction) ----------------- */}
       <section id="hero" className="relative min-h-[90vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 grid-glow-bg">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
-          
+
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -362,7 +362,7 @@ const Portfolio = () => {
               {/* Outer decorative elements */}
               <div className="absolute w-72 h-72 rounded-full border border-dashed border-primary-500/30 animate-spin-slow"></div>
               <div className="absolute w-60 h-60 rounded-full border border-dashed border-secondary-500/20"></div>
-              
+
               {/* Glowing core profile card stub */}
               <div className="w-64 h-64 glass-card rounded-3xl p-6 flex flex-col justify-between border-2 border-primary-500/20 shadow-2xl relative overflow-hidden">
                 <div className="absolute -top-10 -right-10 w-24 h-24 bg-primary-500/10 rounded-full blur-xl"></div>
@@ -419,11 +419,11 @@ const Portfolio = () => {
               <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
                 Scalable Solutions & High-Performance Full Stack Execution
               </h3>
-              
+
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 As a highly accomplished software architect with roots in core web platforms, I offer over a decade of technical project leadership. My expertise spans building MVC foundations, robust database management systems, security implementations, digital marketing tunnels, and interactive client products.
               </p>
-              
+
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 My recent focus centers around the high-speed Node/React/MongoDB paradigm (MERN), enabling corporations to deploy reactive admin grids, responsive frontends, automated email notification microservices, and secure JWT-based authentication loops.
               </p>
@@ -571,7 +571,7 @@ const Portfolio = () => {
 
                 <div className="glass-card p-6 rounded-2xl border border-slate-200/40 dark:border-dark-cardBorder/40 shadow-sm relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary-500/5 rounded-full blur-xl"></div>
-                  
+
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 gap-2">
                     <div>
                       {/* Job Title first */}
@@ -624,11 +624,10 @@ const Portfolio = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 border ${
-                activeCategory === cat
+              className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 border ${activeCategory === cat
                   ? 'bg-primary-600 text-white border-primary-600 shadow-md shadow-primary-500/20'
                   : 'glass-card border-slate-200/50 text-slate-600 dark:text-slate-300 hover:border-primary-500/40'
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -794,7 +793,7 @@ const Portfolio = () => {
       <section id="certifications" className="py-20 px-4 sm:px-6 lg:px-8 relative bg-slate-50/50 dark:bg-slate-900/30 border-t border-slate-200/20 dark:border-dark-cardBorder/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
+
             {/* Education Block (Diploma first, Course first then Institution) */}
             <div className="lg:col-span-5 flex flex-col space-y-6">
               <h3 className="text-2xl font-extrabold text-slate-800 dark:text-white border-b border-slate-200 dark:border-dark-cardBorder pb-3 flex items-center space-x-2.5">
@@ -807,16 +806,16 @@ const Portfolio = () => {
                 <span className="text-[10px] font-bold uppercase tracking-widest text-primary-500 bg-primary-500/10 px-2 py-1 rounded">
                   Computer Diploma
                 </span>
-                
+
                 {/* Course first, then institution name */}
                 <h4 className="text-xl font-bold text-slate-800 dark:text-white mt-4">
                   Computer Engineering Diploma
                 </h4>
-                
+
                 <p className="text-sm font-semibold text-slate-600 dark:text-slate-300 mt-1">
                   NTTF Tuticorin
                 </p>
-                
+
                 <div className="flex items-center space-x-2 text-xs text-slate-400 mt-4 font-semibold">
                   <Calendar className="h-4 w-4 text-secondary-500" />
                   <span>2008 – 2010</span>
@@ -920,7 +919,7 @@ const Portfolio = () => {
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative bg-slate-50/50 dark:bg-slate-900/30 border-t border-slate-200/20 dark:border-dark-cardBorder/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
+
             {/* Context Left Panel */}
             <div className="lg:col-span-5 flex flex-col space-y-8">
               <div>
@@ -975,7 +974,7 @@ const Portfolio = () => {
             {/* Interactive Form Panel */}
             <div className="lg:col-span-7">
               <form onSubmit={handleContactSubmit} className="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/50 dark:border-dark-cardBorder/50 shadow-lg flex flex-col space-y-6">
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="flex flex-col space-y-2 text-left">
                     <label htmlFor="name" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
@@ -1049,13 +1048,12 @@ const Portfolio = () => {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className={`p-4 rounded-xl flex items-center space-x-3 text-sm font-medium ${
-                        formStatus.type === 'loading'
+                      className={`p-4 rounded-xl flex items-center space-x-3 text-sm font-medium ${formStatus.type === 'loading'
                           ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20'
                           : formStatus.type === 'success'
-                          ? 'bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20 animate-pulse'
-                          : 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20'
-                      }`}
+                            ? 'bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20 animate-pulse'
+                            : 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20'
+                        }`}
                     >
                       {formStatus.type === 'loading' ? (
                         <div className="h-4 w-4 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
