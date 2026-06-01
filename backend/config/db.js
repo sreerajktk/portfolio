@@ -6,7 +6,8 @@ const connectDB = async () => {
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`MongoDB Connection Error: ${error.message}`);
-    console.log('Server is remaining active in offline-mode. Verify local MongoDB or Atlas URI.');
+    console.log('Crashing server to surface the exact connection error on Render...');
+    process.exit(1);
   }
 };
 
