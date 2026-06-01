@@ -24,7 +24,7 @@ services:
         sync: false # Render will prompt you to set your Admin dashboard password
 
   # 2. Frontend React Client
-  - type: static
+  - type: web
     name: sreeraj-portfolio-frontend
     env: static
     plan: free
