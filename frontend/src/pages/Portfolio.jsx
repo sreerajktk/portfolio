@@ -117,7 +117,7 @@ const experiences = [
   {
     title: 'Project manager',
     company: '4champz Innovative Pvt Ltd',
-    location: 'Kerala, India',
+    location: 'Bangalore, India',
     duration: '2023 – Present',
     responsibilities: [
       'Performed full scale website maintenance and frontend usability optimizations.',
